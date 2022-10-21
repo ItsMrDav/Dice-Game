@@ -27,9 +27,29 @@
       </section>
 
       <img src="dice-5.png" alt="Playing dice" class="dice" />
-      <button class="btn btn--new">🔄 New game</button>
+      <button class="btn btn--new">🔄 Start Game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
+
+      <!-- TEST OF INSTRUCTION BUTTON -->
+
+      <section>
+        <div class="modal hidden">
+          <button class="close--modal">&times;</button>
+          <h1>📘 GAME INSTRUCTIONS</h1>
+          <ul>
+            <li>🎲 "Player 1" starts first.</li>
+            <li>🎲 Click "ROLL DICE" to generate random dice roll.</li>
+            <li>🎲 Click "HOLD" to keep your turn score to add total score.</li>
+            <li>🎲 When click "HOLD" you skip turn.</li>
+            <li>🎲 When roll "1", you lose your current score without hold.</li>
+            <li>🎲 When roll "1", you lose your turn.</li>
+            <li>🎲 Whoever gets total "50" score first wins.</li>
+            <li>🎲 Click "NEW GAME" to start a fresh game.</li>
+          </ul>
+        </div>
+        <div class="overlay hidden"></div>
+      </section>
     </main>
     <script src="script.js"></script>
   </body>

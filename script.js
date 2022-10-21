@@ -12,6 +12,10 @@ const btnNew = document.querySelector(`.btn--new`);
 const btnRoll = document.querySelector(`.btn--roll`);
 const btnHold = document.querySelector(`.btn--hold`);
 
+const modal = document.querySelector(`.modal`);
+const btnCloseModal = document.querySelector(`.close--modal`);
+const overlay = document.querySelector(`.overlay`);
+
 const diceSound = new Audio(`dice-roll.wav`);
 const switchSound = new Audio(`switch-sound.wav`);
 const winSound = new Audio(`win-sound.wav`);
@@ -44,12 +48,22 @@ initialize();
 
 const switchPlayer = function () {
   switchSound.play();
-  // diceEl.classList.add(`hidden`);
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
   player0El.classList.toggle(`player--active`);
   player1El.classList.toggle(`player--active`);
+};
+
+//INSTRUCTION FUNCTIONS
+const openModal = function () {
+  modal.classList.remove(`hidden`);
+  overlay.classList.remove(`hidden`);
+};
+
+const closeModal = function () {
+  modal.classList.add(`hidden`);
+  overlay.classList.add(`hidden`);
 };
 
 // ROLLIN DICE FUNCTION
@@ -84,7 +98,7 @@ btnHold.addEventListener(`click`, function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     //2.Check if player's score is >=50
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 50) {
       //Finish the game
       winSound.play();
       playing = false;
@@ -104,3 +118,16 @@ btnHold.addEventListener(`click`, function () {
 
 // NEW GAME BUTTON FUNCTION & CALLING STARTING CONDITION FUNCTION
 btnNew.addEventListener(`click`, initialize);
+btnNew.addEventListener(`click`, function () {
+  btnNew.textContent = `🔄 new game`;
+});
+
+//INSTRUCTIONS in START/NEW GAME BUTTON
+
+btnNew.addEventListener(`click`, openModal);
+btnCloseModal.addEventListener(`click`, closeModal);
+document.addEventListener(`keydown`, function (e) {
+  if (e.key === `Escape` && !modal.classList.contains(`hidden`)) {
+    closeModal();
+  }
+});

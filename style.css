@@ -32,7 +32,7 @@ main {
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
 }
 
@@ -133,11 +133,14 @@ main {
 .btn--new {
   top: 4rem;
 }
-.btn--roll {
-  top: 39.3rem;
-}
 .btn--hold {
-  top: 46.1rem;
+  top: 39rem;
+}
+.btn--roll {
+  top: 46rem;
+}
+.btn--inst {
+  top: 53rem;
 }
 
 .btn:active {
@@ -173,4 +176,57 @@ main {
 
 .hidden {
   display: none;
+}
+
+/* TEST OF INSTRUCTION BUTTON  */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  /* background-color: white; */
+  background-color: #d9afd9;
+  background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.close--modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+li {
+  font-size: 2rem;
+  padding: 0.5rem;
+  list-style: none;
 }
